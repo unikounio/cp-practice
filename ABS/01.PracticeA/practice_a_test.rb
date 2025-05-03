@@ -1,13 +1,13 @@
 require 'minitest/autorun'
 require 'stringio'
-require_relative './PracticeA'
+require_relative './practice_a'
 
 class PracticeATest < Minitest::Test
   def assert_practice_a_output(input, expected)
     $stdin = StringIO.new(input)
     output = StringIO.new
     $stdout = output
-    
+
     begin
       practice_a
     ensure
@@ -22,7 +22,7 @@ class PracticeATest < Minitest::Test
       1
       2 3
       test
-      TEXT
+    TEXT
 
     expected = '6 test'
 
@@ -34,7 +34,7 @@ class PracticeATest < Minitest::Test
       72
       128 256
       myonmyon
-      TEXT
+    TEXT
 
     expected = '456 myonmyon'
 
