@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'stringio'
-require_relative './PracticeA'
+require_relative './practice_a'
 
 class PracticeATest < Minitest::Test
   def assert_practice_a_output(input, expected)
