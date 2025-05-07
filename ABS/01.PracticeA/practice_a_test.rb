@@ -1,22 +1,11 @@
 require 'minitest/autorun'
 require 'stringio'
 require_relative './practice_a'
+require_relative '../../test_helper'
 
 class PracticeATest < Minitest::Test
-  def assert_practice_a_output(input, expected)
-    $stdin = StringIO.new(input)
-    output = StringIO.new
-    $stdout = output
-
-    begin
-      practice_a
-    ensure
-      $stdout = STDOUT
-    end
-
-    assert_equal expected, output.string
-  end
-
+  include TestHelper
+  
   def test_case1
     input = <<~TEXT
       1
@@ -26,7 +15,7 @@ class PracticeATest < Minitest::Test
 
     expected = '6 test'
 
-    assert_practice_a_output(input, expected)
+    assert_output_with_input(input, expected) { practice_a }
   end
 
   def test_case2
@@ -38,6 +27,6 @@ class PracticeATest < Minitest::Test
 
     expected = '456 myonmyon'
 
-    assert_practice_a_output(input, expected)
+    assert_output_with_input(input, expected) { practice_a }
   end
 end
