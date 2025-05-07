@@ -1,14 +1,10 @@
 require 'minitest/autorun'
 require 'stringio'
 require_relative './abc086a'
+require_relative '../../test_helper'
 
 class ABC086A < Minitest::Test
-  def assert_abc086a_output(input, expected)
-    $stdin = StringIO.new(input)
-    output, _err = capture_io { abc086a }
-
-    assert_equal expected, output
-  end
+  include TestHelper
 
   def test_case1
     input = <<~TEXT
@@ -16,7 +12,7 @@ class ABC086A < Minitest::Test
     TEXT
 
     expected = 'Even'
-    assert_abc086a_output(input, expected)
+    assert_output_with_input(input, expected) { abc086a }
   end
 
   def test_case2
@@ -25,6 +21,6 @@ class ABC086A < Minitest::Test
     TEXT
 
     expected = 'Odd'
-    assert_abc086a_output(input, expected)
+    assert_output_with_input(input, expected) { abc086a }
   end
 end
