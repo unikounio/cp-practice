@@ -22,9 +22,17 @@ class Abc085cTest < Minitest::Test
 
   def test_case3
     input = "1000 1234000\n"
-    expected = "14 27 959\n"
+    expected = 14 * 10_000 + 27 * 5000 + 959 * 1000
 
-    assert_output_with_input(input, expected) { abc085c }
+    begin
+      $stdin = StringIO.new(input)
+      output, _err = capture_io { abc085c }
+      b = output.split.map(&:to_i)
+      result = b[0] * 10_000 + b[1] * 5000 + b[2] * 1000
+      assert_equal expected, result
+    ensure
+      $stdin = STDIN
+    end
   end
 
   def test_case4
