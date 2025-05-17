@@ -7,7 +7,7 @@ class Abc403aTest < Minitest::Test
       7
       3 1 4 1 5 9 2
     TEXT
-    expected = '14'
+    expected = 14
 
     assert_equal expected, abc403a(input)
   end
@@ -17,7 +17,7 @@ class Abc403aTest < Minitest::Test
       1
       100
     TEXT
-    expected = '100'
+    expected = 100
 
     assert_equal expected, abc403a(input)
   end
@@ -27,7 +27,7 @@ class Abc403aTest < Minitest::Test
       14
       100 10 1 10 100 10 1 10 100 10 1 10 100 10
     TEXT
-    expected = '403'
+    expected = 403
 
     assert_equal expected, abc403a(input)
   end
